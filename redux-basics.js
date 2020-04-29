@@ -27,12 +27,18 @@ const rootReducer = (state = initialState, action) => {
 
 //Store
 const store = creatStore(rootReducer);
-
 console.log(store.getState());
+
+// Subcription
+store.subscribe(() => {
+        console.log('[Subscription]', store.getState());
+});
 
 // Dispactchin action
 store.dispatch({type: 'INC_COUNTER'});
 store.dispatch({type: 'ADD_COUNTER', value: 10});
 console.log(store.getState());
 
-// Subcription
+
+
+//Execution: from terminal type:node redux-basics.js 
