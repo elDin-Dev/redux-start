@@ -1,4 +1,5 @@
 import { bindActionCreators } from "redux";
+import * as actionsTypes from './actions'
 
 const initialState = {
     counter: 0,
@@ -10,29 +11,29 @@ const reducer = (state = initialState, action) => {
     console.log('[reducer:]', action)
 
     switch (action.type) {
-        case 'INCREMENT':
+        case actionsTypes.INCREMENT:
             const newState = Object.assign({}, state);
             newState.counter = state.counter + 1;
             return newState
 
-        case 'DECREMENT':
+        case actionsTypes.DECREMENT:
 
             return {
                 ...state,
                 counter: state.counter - 1,
             }
-        case 'ADD':
+        case actionsTypes.ADD:
             return {
                 ...state,
                 counter: state.counter + action.val,
             };
 
-        case 'SUBTRACT':
+        case actionsTypes.SUBTRACT:
             return {
                 ...state,
                 counter: state.counter - action.val,
             };
-        case 'STORE_RESULT':
+        case actionsTypes.STORE_RESULT:
             return {
                 ...state,
                 results: state.results.concat({
@@ -40,7 +41,7 @@ const reducer = (state = initialState, action) => {
                     id: new Date(),
                 }),
             };
-        case 'DELETE_RESULT':
+        case actionsTypes.DELETE_RESULT:
         
         /*
         const id=2;        
