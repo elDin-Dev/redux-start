@@ -5,6 +5,12 @@ const initialState = {
     results: [],
 }
 
+
+const deleteResult= (state, action) => {
+    const updatedArray = state.results.filter(result => result.id !== action.resultElId);
+    return updateObject(state, {results: updatedArray})
+}
+
 const reducer = (state = initialState, action) => {
 
     console.log('[reducer:]', action)
@@ -20,17 +26,7 @@ const reducer = (state = initialState, action) => {
             }
             )
         case actionsTypes.DELETE_RESULT:
-
-            /*
-            const id=2;        
-            const newArray = [...state.results]
-            newArray.splice(id,1);
-            */
-
-            //Copy an array--->const updatedArray = state.reducer.filter(result=>true);
-
-            const updatedArray = state.results.filter(result => result.id !== action.resultElId);
-            return updateObject(state, {results: updatedArray})
+            return deleteResult(state, action);
 
     }
 
