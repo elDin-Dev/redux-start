@@ -10,6 +10,7 @@
     "react-redux": "^7.2.0",
     "react-scripts": "^3.4.1",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
